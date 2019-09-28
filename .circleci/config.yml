@@ -10,5 +10,13 @@ jobs:
 
     steps:
       - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{checksum "package.json"}}
+            - v1-dependencies-
       - run: yarn install
+      - save_cache:
+          paths:
+            - nodel_modules
+          key: v1-dependencies-{{checksum "package.json"}}
       - run: yarn test
