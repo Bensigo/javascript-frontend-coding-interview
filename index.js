@@ -32,11 +32,26 @@ function longestAlphaWord(words){
   console.log(alphaWord)
   return alphaWord
 }
-// console.log(longestAlphaWord(words))
 
-
+/**
+ * 
+ * check if a word is a palindrome 
+ * which means is spelt the same way backward or forward
+ * e.g racecar
+ */
+function palindrome(word){
+    const arr = word.split("").reverse();
+    let temp = [];
+    arr.forEach(char => temp.push(char));
+    if (temp.join("") === word){
+      return true;
+    }
+    return false;
+    
+  }
 
 // exported module 
 module.exports = {
-    longestAlphaWord
+    longestAlphaWord,
+    palindrome
 }
